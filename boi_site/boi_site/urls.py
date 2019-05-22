@@ -13,9 +13,29 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+from boi_stats.views import *
+from boi_stats.api import *
+
+admin.autodiscover()
 
 urlpatterns = [
+    # ajax
+    url(r'^ajax/logout/', logout_req),
+    url(r'^ajax/top_artists/', top_artists_req),
+
+    # pages
     url(r'^admin/', admin.site.urls),
+    url(r'^login/', login, name = 'login'),
+    url(r'^connect/', connect , name = 'connect'),
+    url(r'^dash/', dash, name = 'dash'),
+    url(r'^group/', group, name = 'group'),
+    url(r'^connecting/', connecting, name = 'connecting'),
+    url(r'^spotifyReturn/', connect, name = 'spotifyReturn'),
+    url(r'^$', connect, name = 'default'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
