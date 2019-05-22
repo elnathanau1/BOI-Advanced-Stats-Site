@@ -11,10 +11,10 @@ import json
 # Create your views here.
 def home(request):
 
-    new_run = Run()
-    new_run.user = "test_user"
-    new_run.seed = "test_seed"
-    new_run.save()
+    # new_run = Run()
+    # new_run.user = "test_user"
+    # new_run.seed = "test_seed"
+    # new_run.save()
 
     context = {
 
