@@ -1,12 +1,14 @@
 from django.db import models
 
 # Create your models here.
-class User(models.Model):
-    name = models.CharField(primary_key = True, max_length = 50)
+class Run(models.Model):
+    user = models.CharField(max_length = 50)
+    seed = models.CharField(max_length = 10)
 
     class Meta:
-        db_table = 'users'
+        db_table = 'runs'
+        unique_together = (('user', 'seed'),)
         managed = True
 
     def __str__(self):
-        return (self.name)
+        return (self.user + ", " + self.seed)
