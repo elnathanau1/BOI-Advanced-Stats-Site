@@ -24,18 +24,13 @@ admin.autodiscover()
 
 urlpatterns = [
     # ajax
-    url(r'^ajax/logout/', logout_req),
-    url(r'^ajax/top_artists/', top_artists_req),
+    # url(r'^ajax/logout/', logout_req),
+    # url(r'^ajax/top_artists/', top_artists_req),
 
     # pages
     url(r'^admin/', admin.site.urls),
-    url(r'^login/', login, name = 'login'),
-    url(r'^connect/', connect , name = 'connect'),
-    url(r'^dash/', dash, name = 'dash'),
-    url(r'^group/', group, name = 'group'),
-    url(r'^connecting/', connecting, name = 'connecting'),
-    url(r'^spotifyReturn/', connect, name = 'spotifyReturn'),
-    url(r'^$', connect, name = 'default'),
+    url(r'^$', home, name = 'default'),
+    url(r'^home/', home, name = 'home'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
